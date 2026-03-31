@@ -1,0 +1,29 @@
+/* Apple System Fonts for Omoke Ogao Portfolio */
+
+/* New York (Serif) - For Headings */
+@supports (font-family: "New York") {
+  .font-new-york {
+    font-family: "New York", "Georgia", serif;
+  }
+}
+
+/* Apple Garamond (Condensed) - For Logo/Name */
+@supports (font-family: "Apple Garamond") {
+  .font-garamond {
+    font-family: "Apple Garamond", "Garamond", serif;
+  }
+}
+
+/* SF Pro (Sans) - For Body Text */
+@supports (font-family: "SF Pro Text") {
+  .font-sf-pro {
+    font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  }
+}
+
+/* Menlo/Monaco - For Technical/Email Text */
+@supports (font-family: "Menlo") {
+  .font-mono-apple {
+    font-family: "Menlo", "Monaco", "Courier New", monospace;
+  }
+}

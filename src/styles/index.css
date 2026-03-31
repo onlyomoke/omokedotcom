@@ -1,0 +1,31 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+/* Smooth scrolling and no scroll margin */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for cleaner aesthetic while keeping functionality */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #7f4f24 #333d29;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #333d29;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #7f4f24;
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #936639;
+}
