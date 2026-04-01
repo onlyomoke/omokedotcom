@@ -1,29 +1,175 @@
-/* Apple System Fonts for Omoke Ogao Portfolio */
+/* ============================================
+   Apple Fonts for Omoke Ogao Portfolio
+   Self-hosted from assets folder
+   ============================================ */
 
-/* New York (Serif) - For Headings */
-@supports (font-family: "New York") {
-  .font-new-york {
-    font-family: "New York", "Georgia", serif;
-  }
+/* ===== SF Pro Display (For Headings) ===== */
+/* Regular */
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/assets/fonts/SFPro/SF-Pro-Display-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
-/* Apple Garamond (Condensed) - For Logo/Name */
-@supports (font-family: "Apple Garamond") {
-  .font-garamond {
-    font-family: "Apple Garamond", "Garamond", serif;
-  }
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/assets/fonts/SFPro/SF-Pro-Display-RegularItalic.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
 }
 
-/* SF Pro (Sans) - For Body Text */
-@supports (font-family: "SF Pro Text") {
-  .font-sf-pro {
-    font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
-  }
+/* Medium */
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/assets/fonts/SFPro/SF-Pro-Display-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
-/* Menlo/Monaco - For Technical/Email Text */
-@supports (font-family: "Menlo") {
-  .font-mono-apple {
-    font-family: "Menlo", "Monaco", "Courier New", monospace;
-  }
+/* Semibold */
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/assets/fonts/SFPro/SF-Pro-Display-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bold */
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/assets/fonts/SFPro/SF-Pro-Display-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Heavy */
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/assets/fonts/SFPro/SF-Pro-Display-Heavy.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Black */
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/assets/fonts/SFPro/SF-Pro-Display-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===== SF Pro Text (For Body Text) ===== */
+/* Regular */
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('/assets/fonts/SFPro/SF-Pro-Text-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('/assets/fonts/SFPro/SF-Pro-Text-RegularItalic.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Light */
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('/assets/fonts/SFPro/SF-Pro-Text-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Medium */
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('/assets/fonts/SFPro/SF-Pro-Text-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Semibold */
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('/assets/fonts/SFPro/SF-Pro-Text-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bold */
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('/assets/fonts/SFPro/SF-Pro-Text-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===== SF Pro Rounded (For UI Elements) ===== */
+@font-face {
+  font-family: 'SF Pro Rounded';
+  src: url('/assets/fonts/SFPro/SF-Pro-Rounded-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Rounded';
+  src: url('/assets/fonts/SFPro/SF-Pro-Rounded-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Rounded';
+  src: url('/assets/fonts/SFPro/SF-Pro-Rounded-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===== Utility Classes ===== */
+.font-sf-pro-display {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.font-sf-pro-text {
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.font-sf-pro-rounded {
+  font-family: 'SF Pro Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Optional: Set body default to SF Pro Text */
+body {
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Headings default to SF Pro Display - Clean, modern Apple aesthetic */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Optional: If you want to keep New York for specific elements */
+.heading-serif {
+  font-family: 'New York', 'Georgia', serif;
+  font-weight: 600;
 }

@@ -2,13 +2,10 @@ import { Instagram } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="py-12 px-6 bg-[#414833] border-t border-[#656d4a]">
+    <footer className="py-12 px-6 bg-ebony border-t border-dusty-olive">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Copyright */}
-        <p
-          className="text-[#656d4a] text-sm"
-          style={{ fontFamily: 'SF Pro Text, -apple-system, sans-serif' }}
-        >
+        <p className="font-sans text-dusty-olive text-sm font-normal">
           © 2024 Omoke Ogao. All rights reserved.
         </p>
 
@@ -18,14 +15,11 @@ export function Footer() {
             href="https://instagram.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-[#b6ad90] hover:text-[#a68a64] transition-colors"
+            className="flex items-center gap-2 text-khaki-beige hover:text-camel transition-colors"
             aria-label="Follow on Instagram"
           >
             <Instagram className="w-5 h-5" />
-            <span
-              className="text-sm"
-              style={{ fontFamily: 'SF Pro Text, -apple-system, sans-serif' }}
-            >
+            <span className="font-sans text-sm font-normal">
               @omoke_ogao
             </span>
           </a>
@@ -34,8 +28,7 @@ export function Footer() {
         {/* Back to Top */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="text-sm text-[#a68a64] hover:text-[#b6ad90] transition-colors"
-          style={{ fontFamily: 'SF Pro Text, -apple-system, sans-serif' }}
+          className="font-sans text-sm text-camel hover:text-khaki-beige transition-colors font-medium"
         >
           Back to Top ↑
         </button>

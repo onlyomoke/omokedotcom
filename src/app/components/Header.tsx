@@ -37,15 +37,14 @@ export function Header({ activeSection }: HeaderProps) {
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-[#582f0e]/95 backdrop-blur-sm shadow-lg' : 'bg-[#414833]/80'
+        isScrolled ? 'bg-dark-walnut/95 backdrop-blur-sm shadow-lg' : 'bg-ebony/80'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
         {/* Logo/Name */}
         <button
           onClick={() => scrollToSection('home')}
-          className="text-2xl tracking-wider text-[#b6ad90] hover:text-[#a68a64] transition-colors duration-300"
-          style={{ fontFamily: 'Apple Garamond, Garamond, serif' }}
+          className="font-garamond text-2xl tracking-wider text-khaki-beige hover:text-camel transition-colors duration-300"
         >
           Omoke Ogao
         </button>
@@ -56,17 +55,17 @@ export function Header({ activeSection }: HeaderProps) {
             <button
               key={link.id}
               onClick={() => scrollToSection(link.id)}
-              className={`relative text-base transition-colors duration-300 ${
+              className={`font-sans relative text-base transition-colors duration-300 ${
                 activeSection === link.id
-                  ? 'text-[#a68a64]'
-                  : 'text-[#c2c5aa] hover:text-[#a68a64]'
+                  ? 'text-camel'
+                  : 'text-dry-sage hover:text-camel'
               }`}
             >
               {link.label}
               {activeSection === link.id && (
                 <motion.div
                   layoutId="activeSection"
-                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#a68a64]"
+                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-camel"
                   transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                 />
               )}

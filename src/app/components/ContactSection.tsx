@@ -66,7 +66,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="min-h-screen py-24 px-6 bg-[#582f0e]">
+    <section id="contact" className="min-h-screen py-24 px-6 bg-dark-walnut">
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -76,16 +76,10 @@ export function ContactSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2
-            className="text-5xl md:text-6xl text-[#b6ad90] mb-4"
-            style={{ fontFamily: 'New York, Georgia, serif', fontWeight: 700 }}
-          >
+          <h2 className="font-serif text-5xl md:text-6xl text-khaki-beige mb-4 font-bold">
             Book Omoke
           </h2>
-          <p
-            className="text-lg text-[#a4ac86] max-w-2xl mx-auto"
-            style={{ fontFamily: 'SF Pro Text, -apple-system, sans-serif' }}
-          >
+          <p className="font-sans text-lg text-dry-sage-light max-w-2xl mx-auto font-normal">
             Ready to bring your vision to life? Fill out the form below and I'll get back to you 
             within 24-48 hours to discuss your project.
           </p>
@@ -98,15 +92,14 @@ export function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="bg-[#414833] p-8 md:p-12 rounded-lg border border-[#656d4a]"
+          className="bg-ebony p-8 md:p-12 rounded-lg border border-dusty-olive"
         >
           <div className="grid md:grid-cols-2 gap-6 mb-6">
             {/* Name */}
             <div>
               <label
                 htmlFor="name"
-                className="block text-[#b6ad90] mb-2"
-                style={{ fontFamily: 'SF Pro Text, -apple-system, sans-serif' }}
+                className="font-sans block text-khaki-beige mb-2 font-medium"
               >
                 Name *
               </label>
@@ -117,8 +110,7 @@ export function ContactSection() {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-[#333d29] border border-[#656d4a] rounded text-[#c2c5aa] focus:outline-none focus:border-[#a68a64] transition-colors"
-                style={{ fontFamily: 'SF Pro Text, -apple-system, sans-serif' }}
+                className="font-sans w-full px-4 py-3 bg-charcoal-brown border border-dusty-olive rounded text-dry-sage focus:outline-none focus:border-camel transition-colors"
                 disabled={formStatus === 'loading' || formStatus === 'success'}
               />
             </div>
@@ -127,8 +119,7 @@ export function ContactSection() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-[#b6ad90] mb-2"
-                style={{ fontFamily: 'SF Pro Text, -apple-system, sans-serif' }}
+                className="font-sans block text-khaki-beige mb-2 font-medium"
               >
                 Email *
               </label>
@@ -139,8 +130,7 @@ export function ContactSection() {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-[#333d29] border border-[#656d4a] rounded text-[#c2c5aa] focus:outline-none focus:border-[#a68a64] transition-colors"
-                style={{ fontFamily: 'SF Pro Text, -apple-system, sans-serif' }}
+                className="font-sans w-full px-4 py-3 bg-charcoal-brown border border-dusty-olive rounded text-dry-sage focus:outline-none focus:border-camel transition-colors"
                 disabled={formStatus === 'loading' || formStatus === 'success'}
               />
             </div>
@@ -151,8 +141,7 @@ export function ContactSection() {
             <div>
               <label
                 htmlFor="eventDate"
-                className="block text-[#b6ad90] mb-2"
-                style={{ fontFamily: 'SF Pro Text, -apple-system, sans-serif' }}
+                className="font-sans block text-khaki-beige mb-2 font-medium"
               >
                 Event Date
               </label>
@@ -162,8 +151,7 @@ export function ContactSection() {
                 name="eventDate"
                 value={formData.eventDate}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-[#333d29] border border-[#656d4a] rounded text-[#c2c5aa] focus:outline-none focus:border-[#a68a64] transition-colors"
-                style={{ fontFamily: 'SF Pro Text, -apple-system, sans-serif' }}
+                className="font-sans w-full px-4 py-3 bg-charcoal-brown border border-dusty-olive rounded text-dry-sage focus:outline-none focus:border-camel transition-colors"
                 disabled={formStatus === 'loading' || formStatus === 'success'}
               />
             </div>
@@ -172,8 +160,7 @@ export function ContactSection() {
             <div>
               <label
                 htmlFor="projectType"
-                className="block text-[#b6ad90] mb-2"
-                style={{ fontFamily: 'SF Pro Text, -apple-system, sans-serif' }}
+                className="font-sans block text-khaki-beige mb-2 font-medium"
               >
                 Project Type *
               </label>
@@ -183,8 +170,7 @@ export function ContactSection() {
                 required
                 value={formData.projectType}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-[#333d29] border border-[#656d4a] rounded text-[#c2c5aa] focus:outline-none focus:border-[#a68a64] transition-colors"
-                style={{ fontFamily: 'SF Pro Text, -apple-system, sans-serif' }}
+                className="font-sans w-full px-4 py-3 bg-charcoal-brown border border-dusty-olive rounded text-dry-sage focus:outline-none focus:border-camel transition-colors"
                 disabled={formStatus === 'loading' || formStatus === 'success'}
               >
                 <option value="">Select a project type</option>
@@ -201,8 +187,7 @@ export function ContactSection() {
           <div className="mb-8">
             <label
               htmlFor="message"
-              className="block text-[#b6ad90] mb-2"
-              style={{ fontFamily: 'SF Pro Text, -apple-system, sans-serif' }}
+              className="font-sans block text-khaki-beige mb-2 font-medium"
             >
               Tell me about your project *
             </label>
@@ -214,8 +199,7 @@ export function ContactSection() {
               value={formData.message}
               onChange={handleChange}
               placeholder="Share your vision, timeline, and any specific requirements..."
-              className="w-full px-4 py-3 bg-[#333d29] border border-[#656d4a] rounded text-[#c2c5aa] placeholder-[#656d4a] focus:outline-none focus:border-[#a68a64] transition-colors resize-none"
-              style={{ fontFamily: 'SF Pro Text, -apple-system, sans-serif' }}
+              className="font-sans w-full px-4 py-3 bg-charcoal-brown border border-dusty-olive rounded text-dry-sage placeholder-dusty-olive focus:outline-none focus:border-camel transition-colors resize-none"
               disabled={formStatus === 'loading' || formStatus === 'success'}
             />
           </div>
@@ -224,12 +208,11 @@ export function ContactSection() {
           <button
             type="submit"
             disabled={formStatus === 'loading' || formStatus === 'success'}
-            className={`w-full px-8 py-4 rounded font-medium transition-all duration-300 flex items-center justify-center gap-3 ${
+            className={`font-sans w-full px-8 py-4 rounded font-medium transition-all duration-300 flex items-center justify-center gap-3 ${
               formStatus === 'success'
-                ? 'bg-[#656d4a] text-[#b6ad90] cursor-default'
-                : 'bg-[#7f4f24] text-[#c2c5aa] hover:bg-[#936639]'
+                ? 'bg-dusty-olive text-khaki-beige cursor-default'
+                : 'bg-saddle-brown text-dry-sage hover:bg-toffee-brown'
             } disabled:opacity-50`}
-            style={{ fontFamily: 'SF Pro Text, -apple-system, sans-serif' }}
           >
             {formStatus === 'idle' && (
               <>
@@ -252,12 +235,9 @@ export function ContactSection() {
           </button>
 
           {/* Note */}
-          <p
-            className="text-sm text-[#a4ac86] text-center mt-6"
-            style={{ fontFamily: 'SF Pro Text, -apple-system, sans-serif' }}
-          >
+          <p className="font-sans text-sm text-dry-sage-light text-center mt-6 font-normal">
             Your inquiry will be sent directly to{' '}
-            <span style={{ fontFamily: 'Menlo, Monaco, monospace' }}>
+            <span className="font-mono text-khaki-beige">
               onlyomoke@gmail.com
             </span>
           </p>

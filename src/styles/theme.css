@@ -23,6 +23,11 @@
   
   /* Application Theme Variables */
   --font-size: 16px;
+  --font-sans: "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Georgia", "Times New Roman", serif;
+  --font-mono: "Menlo", "Monaco", "Courier New", monospace;
+  --font-garamond: "Apple Garamond", "Garamond", serif;
+  
   --background: var(--dark-walnut);
   --foreground: var(--dry-sage);
   --card: var(--ebony);
@@ -105,6 +110,12 @@
   --color-dry-sage-light: var(--dry-sage-light);
   --color-dusty-olive: var(--dusty-olive);
   
+  /* Font Family Variables */
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+  --font-mono: var(--font-mono);
+  --font-garamond: var(--font-garamond);
+  
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -124,58 +135,224 @@
     @apply border-border outline-ring/50;
   }
 
-  body {
-    @apply bg-[#582f0e] text-[#c2c5aa];
-    font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
-  }
-
-  /**
-  * Typography styles using Apple fonts
-  */
-
   html {
     font-size: var(--font-size);
   }
 
+  body {
+    @apply bg-dark-walnut text-dry-sage;
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /**
+   * Typography styles using self-hosted Apple fonts
+   * All headings use SF Pro Display for a clean, modern aesthetic
+   */
+
+  /* Headings - SF Pro Display */
   h1 {
-    font-family: "New York", "Georgia", serif;
-    font-weight: var(--font-weight-bold);
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-heavy);
+    font-size: 3rem;
     line-height: 1.2;
+    letter-spacing: -0.02em;
   }
 
   h2 {
-    font-family: "New York", "Georgia", serif;
-    font-weight: var(--font-weight-semibold);
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-bold);
+    font-size: 2.25rem;
     line-height: 1.3;
+    letter-spacing: -0.01em;
   }
 
   h3 {
-    font-family: "New York", "Georgia", serif;
+    font-family: var(--font-sans);
     font-weight: var(--font-weight-semibold);
+    font-size: 1.875rem;
     line-height: 1.4;
   }
 
   h4 {
-    font-family: "New York", "Georgia", serif;
-    font-weight: var(--font-weight-medium);
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-semibold);
+    font-size: 1.5rem;
     line-height: 1.5;
   }
 
+  h5 {
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-medium);
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+
+  h6 {
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-medium);
+    font-size: 1.125rem;
+    line-height: 1.5;
+  }
+
+  /* Body Text - SF Pro Text */
+  p {
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-normal);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* Small Text */
+  small {
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-normal);
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  /* Labels and Form Elements */
   label {
-    font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: var(--font-sans);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
+    font-size: 0.875rem;
   }
 
   button {
-    font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: var(--font-sans);
     font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+    font-size: 0.875rem;
+  }
+
+  input, 
+  textarea, 
+  select {
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+    font-size: 1rem;
+  }
+
+  /* Links */
+  a {
+    font-family: var(--font-sans);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  /* Blockquotes - Optional, using serif for elegance */
+  blockquote {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: var(--font-weight-normal);
+    line-height: 1.6;
+    border-left: 3px solid var(--camel);
+    padding-left: 1rem;
+    margin: 1rem 0;
+  }
+
+  /* Code Blocks */
+  code,
+  pre {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
     line-height: 1.5;
   }
 
-  input, textarea, select {
-    font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Utility Classes for Font Families */
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  .font-garamond {
+    font-family: var(--font-garamond);
+  }
+
+  /* SF Pro Specific Utility Classes */
+  .font-sf-pro-display {
+    font-family: "SF Pro Display", var(--font-sans);
+  }
+
+  .font-sf-pro-text {
+    font-family: "SF Pro Text", var(--font-sans);
+  }
+
+  .font-sf-pro-rounded {
+    font-family: "SF Pro Rounded", var(--font-sans);
+  }
+
+  /* Font Weight Utilities */
+  .font-normal {
     font-weight: var(--font-weight-normal);
-    line-height: 1.5;
+  }
+
+  .font-medium {
+    font-weight: var(--font-weight-medium);
+  }
+
+  .font-semibold {
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .font-bold {
+    font-weight: var(--font-weight-bold);
+  }
+
+  .font-heavy {
+    font-weight: var(--font-weight-heavy);
+  }
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  h3 {
+    font-size: 1.75rem;
+  }
+  
+  h4 {
+    font-size: 1.375rem;
+  }
+  
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+  
+  html {
+    font-size: 14px;
   }
 }

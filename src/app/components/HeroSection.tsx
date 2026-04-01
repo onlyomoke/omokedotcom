@@ -39,25 +39,19 @@ export function HeroSection({ onScrollDown }: HeroSectionProps) {
       </div>
 
       {/* Overlay with Title */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#582f0e]/40 via-transparent to-[#582f0e]/80 flex flex-col items-center justify-center">
+      <div className="absolute inset-0 bg-gradient-to-b from-dark-walnut/40 via-transparent to-dark-walnut/80 flex flex-col items-center justify-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-center px-6"
         >
-          <h1
-            className="text-7xl md:text-8xl mb-4 text-[#b6ad90] tracking-tight"
-            style={{ fontFamily: 'New York, Georgia, serif', fontWeight: 800 }}
-          >
+          <h1 className="font-serif text-7xl md:text-8xl mb-4 text-khaki-beige tracking-tight font-heavy">
             Cinematic
             <br />
             Storytelling
           </h1>
-          <p
-            className="text-xl md:text-2xl text-[#a4ac86] mt-6"
-            style={{ fontFamily: 'SF Pro Text, -apple-system, sans-serif' }}
-          >
+          <p className="font-sans text-xl md:text-2xl text-dry-sage-light mt-6 font-medium">
             Professional Videography by Omoke Ogao
           </p>
         </motion.div>
@@ -69,17 +63,15 @@ export function HeroSection({ onScrollDown }: HeroSectionProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.2 }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#b6ad90] hover:text-[#a68a64] transition-colors cursor-pointer"
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-khaki-beige hover:text-camel transition-colors cursor-pointer group"
       >
-        <span
-          className="text-sm tracking-wider uppercase"
-          style={{ fontFamily: 'SF Pro Text, -apple-system, sans-serif' }}
-        >
+        <span className="font-sans text-sm tracking-wider uppercase font-medium">
           Explore Work
         </span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+          className="group-hover:text-camel transition-colors"
         >
           <ChevronDown className="w-6 h-6" />
         </motion.div>
