@@ -41,7 +41,7 @@ export function AboutSection() {
           >
             <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
               <img
-                src="https://images.unsplash.com/photo-1674507738101-b4dbe86beea7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb3ZpZSUyMGRpcmVjdG9yJTIwcG9ydHJhaXR8ZW58MXx8fHwxNzc0OTYwOTM0fDA&ixlib=rb-4.1.0&q=80&w=1080"
+                src="/public/images/profile.jpeg"
                 alt="Omoke Ogao"
                 className="w-full h-full object-cover brightness-[0.85] contrast-[1.1]"
               />
@@ -60,26 +60,18 @@ export function AboutSection() {
           >
             <div>
               <h2 className="font-serif text-5xl md:text-6xl text-khaki-beige mb-6 font-bold">
-                About Me
+                About 
               </h2>
               <div className="space-y-4 text-khaki-beige text-lg leading-relaxed">
                 <p className="font-sans font-normal">
-                  I'm Omoke Ogao, a professional videographer specializing in cinematic storytelling 
-                  that captures the authentic moments that matter most. With over a decade of experience 
-                  behind the camera, I've had the privilege of documenting weddings, creating compelling 
-                  commercials, and producing music videos that resonate with audiences worldwide.
+                  Omoke Ogao is a Kenyan creative whose work lives at the intersection of music, visual storytelling, culture, and identity. Based in Nairobi and London, he approaches creativity as world-building; crafting ideas, images, and experiences that feel emotionally honest, visually striking, and culturally alive. 
+
+
                 </p>
                 <p className="font-sans font-normal">
-                  My approach is rooted in understanding the unique narrative of each project. Whether 
-                  it's the intimate emotions of a wedding day, the bold vision of a brand campaign, or 
-                  the artistic expression of a music video, I believe in crafting visual stories that 
-                  are both timeless and impactful.
+                  With a practice rooted in storytelling and visual world-building, he creates work that feels intentional, culturally grounded, and emotionally resonant. Drawing from both local texture and global influence, Omoke is part of a new generation of African creatives shaping how stories are seen, felt, and remembered.
                 </p>
-                <p className="font-sans font-normal">
-                  I draw inspiration from classic cinema and modern visual aesthetics, always striving 
-                  to push creative boundaries while maintaining the authenticity that makes each story 
-                  truly memorable.
-                </p>
+                
               </div>
             </div>
 

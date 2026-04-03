@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
+import { Link, useLocation } from 'react-router-dom';
 
-interface HeaderProps {
-  activeSection: string;
-}
-
-export function Header({ activeSection }: HeaderProps) {
+export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,19 +15,15 @@ export function Header({ activeSection }: HeaderProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   const navLinks = [
-    { id: 'home', label: 'Home' },
-    { id: 'films', label: 'Films' },
-    { id: 'about', label: 'About Me' },
-    { id: 'contact', label: 'Contact' },
+    { id: 'home', label: 'Home', path: '/' },
+    { id: 'about', label: 'About Me', path: '/about' },
+    { id: 'contact', label: 'Contact', path: '/contact' },
   ];
+
+  const isActive = (path: string) => {
+    return location.pathname === path;
+  };
 
   return (
     <motion.header
@@ -42,34 +36,34 @@ export function Header({ activeSection }: HeaderProps) {
     >
       <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
         {/* Logo/Name */}
-        <button
-          onClick={() => scrollToSection('home')}
+        <Link
+          to="/"
           className="font-garamond text-2xl tracking-wider text-khaki-beige hover:text-camel transition-colors duration-300"
         >
           Omoke Ogao
-        </button>
+        </Link>
 
         {/* Navigation */}
         <nav className="flex items-center gap-8">
           {navLinks.map((link) => (
-            <button
+            <Link
               key={link.id}
-              onClick={() => scrollToSection(link.id)}
+              to={link.path}
               className={`font-sans relative text-base transition-colors duration-300 ${
-                activeSection === link.id
+                isActive(link.path)
                   ? 'text-camel'
                   : 'text-dry-sage hover:text-camel'
               }`}
             >
               {link.label}
-              {activeSection === link.id && (
+              {isActive(link.path) && (
                 <motion.div
                   layoutId="activeSection"
                   className="absolute -bottom-1 left-0 right-0 h-0.5 bg-camel"
                   transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                 />
               )}
-            </button>
+            </Link>
           ))}
         </nav>
       </div>

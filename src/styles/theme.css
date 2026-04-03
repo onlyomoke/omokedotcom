@@ -1,25 +1,30 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Dark Walnut Color Palette */
+  /* Dark Ember Flames Color Palette */
   
-  /* Primary/Dark Backgrounds */
-  --dark-walnut: #582f0e;
-  --ebony: #414833;
-  --charcoal-brown: #333d29;
+  /* Primary/Dark Backgrounds - Deep Ember Reds */
+  --molten-lava: #780000;
+  --dark-garnet: #660000;
+  --black-cherry: #520000;
+  --rich-mahogany: #3d0000;
+  --deep-ember: #290000;
   
-  /* Secondary/Elements */
-  --saddle-brown: #7f4f24;
-  --toffee-brown: #936639;
+  /* Secondary/Elements - Smoldering Accents */
+  --ember-glow: #8a1c1c;
+  --burnt-crimson: #6e0d0d;
+  --faded-ruby: #5c1010;
   
-  /* Highlights/Accents */
-  --camel: #a68a64;
-  --khaki-beige: #b6ad90;
+  /* Highlights/Accents - Warmth & Allure */
+  --flame-kissed: #a83333;
+  --smoldering-copper: #9b2c2c;
+  --ember-dust: #b34d4d;
   
-  /* Text/Contrast */
-  --dry-sage: #c2c5aa;
-  --dry-sage-light: #a4ac86;
-  --dusty-olive: #656d4a;
+  /* Text/Contrast - Ethereal Light */
+  --ash-white: #e8e4e1;
+  --smoke-mist: #d1cbc8;
+  --charred-parchment: #b8b0aa;
+  --faded-ember: #9a8f89;
   
   /* Application Theme Variables */
   --font-size: 16px;
@@ -28,46 +33,47 @@
   --font-mono: "Menlo", "Monaco", "Courier New", monospace;
   --font-garamond: "Apple Garamond", "Garamond", serif;
   
-  --background: var(--dark-walnut);
-  --foreground: var(--dry-sage);
-  --card: var(--ebony);
-  --card-foreground: var(--dry-sage);
-  --popover: var(--charcoal-brown);
-  --popover-foreground: var(--dry-sage);
-  --primary: var(--saddle-brown);
-  --primary-foreground: var(--dry-sage);
-  --secondary: var(--toffee-brown);
-  --secondary-foreground: var(--dry-sage);
-  --muted: var(--charcoal-brown);
-  --muted-foreground: var(--dry-sage-light);
-  --accent: var(--camel);
-  --accent-foreground: var(--dark-walnut);
+  /* Theme Colors Mapping */
+  --background: var(--deep-ember);
+  --foreground: var(--ash-white);
+  --card: var(--black-cherry);
+  --card-foreground: var(--ash-white);
+  --popover: var(--rich-mahogany);
+  --popover-foreground: var(--ash-white);
+  --primary: var(--molten-lava);
+  --primary-foreground: var(--ash-white);
+  --secondary: var(--dark-garnet);
+  --secondary-foreground: var(--ash-white);
+  --muted: var(--rich-mahogany);
+  --muted-foreground: var(--faded-ember);
+  --accent: var(--flame-kissed);
+  --accent-foreground: var(--deep-ember);
   --destructive: #d4183d;
   --destructive-foreground: #ffffff;
-  --border: var(--dusty-olive);
-  --input: var(--charcoal-brown);
-  --input-background: var(--charcoal-brown);
-  --switch-background: var(--dusty-olive);
+  --border: var(--ember-glow);
+  --input: var(--black-cherry);
+  --input-background: var(--deep-ember);
+  --switch-background: var(--ember-glow);
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
   --font-weight-heavy: 800;
   --font-weight-normal: 400;
-  --ring: var(--camel);
-  --chart-1: var(--saddle-brown);
-  --chart-2: var(--toffee-brown);
-  --chart-3: var(--camel);
-  --chart-4: var(--khaki-beige);
-  --chart-5: var(--dry-sage);
+  --ring: var(--flame-kissed);
+  --chart-1: var(--molten-lava);
+  --chart-2: var(--dark-garnet);
+  --chart-3: var(--flame-kissed);
+  --chart-4: var(--smoldering-copper);
+  --chart-5: var(--ember-dust);
   --radius: 0.5rem;
-  --sidebar: var(--ebony);
-  --sidebar-foreground: var(--dry-sage);
-  --sidebar-primary: var(--saddle-brown);
-  --sidebar-primary-foreground: var(--dry-sage);
-  --sidebar-accent: var(--charcoal-brown);
-  --sidebar-accent-foreground: var(--camel);
-  --sidebar-border: var(--dusty-olive);
-  --sidebar-ring: var(--camel);
+  --sidebar: var(--black-cherry);
+  --sidebar-foreground: var(--ash-white);
+  --sidebar-primary: var(--molten-lava);
+  --sidebar-primary-foreground: var(--ash-white);
+  --sidebar-accent: var(--rich-mahogany);
+  --sidebar-accent-foreground: var(--ember-dust);
+  --sidebar-border: var(--ember-glow);
+  --sidebar-ring: var(--flame-kissed);
 }
 
 @theme inline {
@@ -98,17 +104,22 @@
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
   
-  /* Custom Dark Walnut Colors */
-  --color-dark-walnut: var(--dark-walnut);
-  --color-ebony: var(--ebony);
-  --color-charcoal-brown: var(--charcoal-brown);
-  --color-saddle-brown: var(--saddle-brown);
-  --color-toffee-brown: var(--toffee-brown);
-  --color-camel: var(--camel);
-  --color-khaki-beige: var(--khaki-beige);
-  --color-dry-sage: var(--dry-sage);
-  --color-dry-sage-light: var(--dry-sage-light);
-  --color-dusty-olive: var(--dusty-olive);
+  /* Custom Dark Ember Colors */
+  --color-molten-lava: var(--molten-lava);
+  --color-dark-garnet: var(--dark-garnet);
+  --color-black-cherry: var(--black-cherry);
+  --color-rich-mahogany: var(--rich-mahogany);
+  --color-deep-ember: var(--deep-ember);
+  --color-ember-glow: var(--ember-glow);
+  --color-burnt-crimson: var(--burnt-crimson);
+  --color-faded-ruby: var(--faded-ruby);
+  --color-flame-kissed: var(--flame-kissed);
+  --color-smoldering-copper: var(--smoldering-copper);
+  --color-ember-dust: var(--ember-dust);
+  --color-ash-white: var(--ash-white);
+  --color-smoke-mist: var(--smoke-mist);
+  --color-charred-parchment: var(--charred-parchment);
+  --color-faded-ember: var(--faded-ember);
   
   /* Font Family Variables */
   --font-sans: var(--font-sans);
@@ -140,7 +151,7 @@
   }
 
   body {
-    @apply bg-dark-walnut text-dry-sage;
+    @apply bg-deep-ember text-ash-white;
     font-family: var(--font-sans);
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
@@ -251,7 +262,7 @@
     font-style: italic;
     font-weight: var(--font-weight-normal);
     line-height: 1.6;
-    border-left: 3px solid var(--camel);
+    border-left: 3px solid var(--flame-kissed);
     padding-left: 1rem;
     margin: 1rem 0;
   }

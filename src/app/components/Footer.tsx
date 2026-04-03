@@ -1,6 +1,13 @@
 import { Instagram } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export function Footer() {
+  const navigate = useNavigate();
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className="py-12 px-6 bg-ebony border-t border-dusty-olive">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
@@ -27,7 +34,7 @@ export function Footer() {
 
         {/* Back to Top */}
         <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onClick={scrollToTop}
           className="font-sans text-sm text-camel hover:text-khaki-beige transition-colors font-medium"
         >
           Back to Top ↑
