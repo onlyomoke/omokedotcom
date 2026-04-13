@@ -20,19 +20,19 @@ export function ContactSection() {
     setFormStatus('loading');
 
     try {
-      // EmailJS Configuration (User needs to set up their own EmailJS account)
-      // Replace these with actual EmailJS credentials
+      // Your EmailJS credentials
       await emailjs.send(
-        'YOUR_SERVICE_ID', // Replace with your EmailJS Service ID
-        'YOUR_TEMPLATE_ID', // Replace with your EmailJS Template ID
+        'service_lwnmt7q',      // Your Service ID
+        'template_pci354f',     // Your Template ID
         {
           from_name: formData.name,
           from_email: formData.email,
           project_type: formData.projectType,
           message: formData.message,
           to_email: 'onlyomoke@gmail.com',
+          reply_to: formData.email,  // This allows you to reply directly to the person
         },
-        'YOUR_PUBLIC_KEY' // Replace with your EmailJS Public Key
+        'nvbvYDZ8SD2Irsb5p'     // Your Public Key
       );
 
       setFormStatus('success');
