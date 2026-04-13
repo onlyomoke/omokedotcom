@@ -1,12 +1,13 @@
 // src/app/components/pages/HomePage.tsx
 import { HeroSection } from '../HeroSection';
+import { AboutSection } from '../AboutSection';
+import { ContactSection } from '../ContactSection';
 import { useNavigate } from 'react-router-dom';
 
 export function HomePage() {
   const navigate = useNavigate();
 
   const scrollToFilms = () => {
-    navigate('/films');
     const filmsElement = document.getElementById('films');
     if (filmsElement) {
       filmsElement.scrollIntoView({ behavior: 'smooth' });
@@ -14,7 +15,6 @@ export function HomePage() {
   };
 
   const scrollToAbout = () => {
-    navigate('/about');
     const aboutElement = document.getElementById('about');
     if (aboutElement) {
       aboutElement.scrollIntoView({ behavior: 'smooth' });
@@ -27,6 +27,8 @@ export function HomePage() {
         onNavigateToFilms={scrollToFilms}
         onNavigateToAbout={scrollToAbout}
       />
+      <AboutSection />
+      <ContactSection />
     </>
   );
 }

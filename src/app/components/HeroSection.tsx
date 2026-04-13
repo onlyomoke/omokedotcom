@@ -9,11 +9,6 @@ interface HeroSectionProps {
   onNavigateToAbout: () => void;
 }
 
-interface VideoMetadata {
-  title: string;
-  year: string;
-}
-
 // YouTube video data for the carousel
 const carouselVideos = [
   { id: 'DGmjwTqg_C0' },
@@ -27,10 +22,11 @@ const carouselVideos = [
   { id: 'rkRnOf1s7-o' }
 ];
 
-// Define image sets for each container with their respective YouTube IDs
+// Define image sets for each container with title and artist
 const imageSets = [
   {
-    name: 'Conquer',
+    title: 'CONQUER',
+    artist: 'Elsy Wameyo ft Ywaya Tajiri',
     youtubeId: '3GbxFCREyvg',
     images: [
       'conquer1.png',
@@ -44,7 +40,8 @@ const imageSets = [
     ]
   },
   {
-    name: 'I Want You',
+    title: 'I WANT YOU',
+    artist: 'Bien',
     youtubeId: 'rkRnOf1s7-o',
     images: [
       'iwantyou1.png',
@@ -69,7 +66,8 @@ const imageSets = [
     ]
   },
   {
-    name: 'Lowkey',
+    title: 'LOWKEY',
+    artist: 'Toxic Lyrikali',
     youtubeId: 'EojQfbRj4aM',
     images: [
       'lowkey1.png',
@@ -79,7 +77,8 @@ const imageSets = [
     ]
   },
   {
-    name: 'Nalia',
+    title: 'NALIA',
+    artist: 'Maureen Kunga',
     youtubeId: 'T6FZF_VMu3o',
     images: [
       'nalia1.png',
@@ -95,8 +94,9 @@ const imageSets = [
     ]
   },
   {
-    name: 'Rwanda',
-    youtubeId: '-JN_2J8QxS8',
+    title: 'MiLELE',
+    artist: 'Element Eleéeh',
+    youtubeId: '_9EN_lUDYQA',
     images: [
       'rwanda1.png',
       'rwanda2.png',
@@ -111,7 +111,8 @@ const imageSets = [
     ]
   },
   {
-    name: 'Sianda',
+    title: 'SIANDA',
+    artist: 'Savara',
     youtubeId: 'uz1XXbkNWyU',
     images: [
       'sianda1.png',
@@ -124,7 +125,8 @@ const imageSets = [
     ]
   },
   {
-    name: 'Too Easy',
+    title: 'TOO EASY',
+    artist: 'Bien',
     youtubeId: 'DGmjwTqg_C0',
     images: [
       'tooeasy1.png',
@@ -132,7 +134,8 @@ const imageSets = [
     ]
   },
   {
-    name: 'Umva',
+    title: 'UMVA',
+    artist: 'Elsy Wameyo',
     youtubeId: '-JN_2J8QxS8',
     images: [
       'umva1.png',
@@ -148,10 +151,10 @@ const getImageUrl = (filename: string) => {
   return `/images/${filename}`;
 };
 
-// Pre-fetch and cache video metadata
-const metadataCache = new Map<string, VideoMetadata>();
+// Pre-fetch and cache video metadata (only titles, no years)
+const metadataCache = new Map<string, string>();
 
-const fetchVideoMetadata = async (videoId: string): Promise<VideoMetadata> => {
+const fetchVideoTitle = async (videoId: string): Promise<string> => {
   if (metadataCache.has(videoId)) {
     return metadataCache.get(videoId)!;
   }
@@ -163,21 +166,17 @@ const fetchVideoMetadata = async (videoId: string): Promise<VideoMetadata> => {
     const data = await response.json();
     
     let title = data.title || 'Untitled';
-    let year = new Date().getFullYear().toString();
     
-    const yearMatch = title.match(/\((19|20)\d{2}\)/) || title.match(/\| (19|20)\d{2}/);
-    if (yearMatch) {
-      year = yearMatch[0].replace(/[\(\)\|]/g, '').trim();
-    }
-    
+    // Clean up title - remove year and common suffixes
     title = title.replace(/\s*[\(\[].*[\)\]]\s*$/, '').trim();
+    title = title.replace(/\s*\|\s*(19|20)\d{2}\s*$/, '').trim();
+    title = title.replace(/\s*[-–]\s*(19|20)\d{2}\s*$/, '').trim();
     
-    const metadata = { title, year };
-    metadataCache.set(videoId, metadata);
-    return metadata;
+    metadataCache.set(videoId, title);
+    return title;
   } catch (error) {
-    console.error('Error fetching video metadata:', error);
-    return { title: 'Untitled', year: '2024' };
+    console.error('Error fetching video title:', error);
+    return 'Untitled';
   }
 };
 
@@ -196,7 +195,7 @@ export function HeroSection({ onNavigateToFilms, onNavigateToAbout }: HeroSectio
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
-  const [videoMetadata, setVideoMetadata] = useState<Map<string, VideoMetadata>>(new Map());
+  const [videoTitles, setVideoTitles] = useState<Map<string, string>>(new Map());
   const [isLoading, setIsLoading] = useState(true);
   const [preloadedIndices, setPreloadedIndices] = useState<Set<number>>(new Set());
   const playerRefs = useRef<Map<string, any>>(new Map());
@@ -212,18 +211,18 @@ export function HeroSection({ onNavigateToFilms, onNavigateToAbout }: HeroSectio
     const initializeCarousel = async () => {
       setIsLoading(true);
       
-      // Fetch metadata for all unique video IDs
+      // Fetch titles for all unique video IDs
       const allVideoIds = [...carouselVideos.map(v => v.id), ...imageSets.map(set => set.youtubeId)];
       const uniqueVideoIds = [...new Set(allVideoIds)];
       
-      const metadataPromises = uniqueVideoIds.map(videoId => fetchVideoMetadata(videoId));
-      const metadataResults = await Promise.all(metadataPromises);
+      const titlePromises = uniqueVideoIds.map(videoId => fetchVideoTitle(videoId));
+      const titleResults = await Promise.all(titlePromises);
       
-      const metadataMap = new Map();
+      const titleMap = new Map();
       uniqueVideoIds.forEach((videoId, index) => {
-        metadataMap.set(videoId, metadataResults[index]);
+        titleMap.set(videoId, titleResults[index]);
       });
-      setVideoMetadata(metadataMap);
+      setVideoTitles(titleMap);
       
       const videosToPreload = carouselVideos.slice(0, 3);
       videosToPreload.forEach(video => {
@@ -298,7 +297,7 @@ export function HeroSection({ onNavigateToFilms, onNavigateToAbout }: HeroSectio
   };
 
   const currentVideo = carouselVideos[currentIndex];
-  const currentMetadata = videoMetadata.get(currentVideo.id) || { title: 'Loading...', year: '2024' };
+  const currentTitle = videoTitles.get(currentVideo.id) || 'Loading...';
 
   const playerOptions = {
     height: '100%',
@@ -379,6 +378,7 @@ export function HeroSection({ onNavigateToFilms, onNavigateToAbout }: HeroSectio
               </div>
             </div>
 
+            {/* Title only - no year */}
             <div className="mt-6 text-center">
               <AnimatePresence mode="wait">
                 <motion.h3
@@ -389,20 +389,8 @@ export function HeroSection({ onNavigateToFilms, onNavigateToAbout }: HeroSectio
                   transition={{ duration: 0.5, ease: "easeInOut" }}
                   className="font-sans text-xl md:text-2xl font-medium text-khaki-beige tracking-wide"
                 >
-                  {currentMetadata.title}
+                  {currentTitle}
                 </motion.h3>
-              </AnimatePresence>
-              <AnimatePresence mode="wait">
-                <motion.p
-                  key={`year-${currentVideo.id}`}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3, delay: 0.2 }}
-                  className="font-sans text-sm text-dry-sage/60 mt-1 font-light tracking-wide"
-                >
-                  {currentMetadata.year}
-                </motion.p>
               </AnimatePresence>
             </div>
 
@@ -437,10 +425,10 @@ export function HeroSection({ onNavigateToFilms, onNavigateToAbout }: HeroSectio
         </div>
       </div>
 
-      {/* Image Grid Section - Each container has its own slideshow with project name as title */}
+      {/* Image Grid Section - Two-layer titles */}
       <section className="relative w-full bg-dark-walnut">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-10 lg:gap-x-12 gap-y-20 md:gap-y-24 lg:gap-y-28">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-10 lg:gap-x-12 gap-y-32 md:gap-y-40 lg:gap-y-48">
             {imageSets.map((imageSet, containerIndex) => {
               const currentIndexValue = currentImageIndices[containerIndex];
               if (currentIndexValue === undefined || !imageSet.images[currentIndexValue]) {
@@ -453,14 +441,14 @@ export function HeroSection({ onNavigateToFilms, onNavigateToAbout }: HeroSectio
                 <motion.div
                   key={`container-${containerIndex}`}
                   className="group cursor-pointer"
-                  onClick={() => openGridVideo(imageSet.youtubeId, imageSet.name)}
+                  onClick={() => openGridVideo(imageSet.youtubeId, `${imageSet.title} - ${imageSet.artist}`)}
                 >
                   <div className="relative w-full overflow-hidden rounded-lg bg-ebony shadow-lg">
                     <AnimatePresence mode="wait">
                       <motion.img
                         key={`${containerIndex}-${currentImage}`}
                         src={getImageUrl(currentImage)}
-                        alt={imageSet.name}
+                        alt={imageSet.title}
                         initial={{ opacity: 0, scale: 1.1 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.95 }}
@@ -478,25 +466,28 @@ export function HeroSection({ onNavigateToFilms, onNavigateToAbout }: HeroSectio
                     <div className="relative pt-[56.25%]" />
                   </div>
                   
-                  <div className="mt-4 space-y-1">
+                  {/* Two-layer titles - Video title and artist */}
+                  <div className="mt-6">
                     <motion.h3 
                       key={`title-${containerIndex}`}
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="font-sans text-base md:text-lg font-medium text-khaki-beige tracking-wide"
+                      className="font-sans text-xl md:text-xl lg:text-2xl font-medium text-khaki-beige tracking-wide mb-1"
                     >
-                      {imageSet.name}
+                      {imageSet.title}
                     </motion.h3>
-                    <motion.p 
-                      key={`year-${containerIndex}`}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.3, delay: 0.1 }}
-                      className="font-sans text-xs text-dry-sage/60 font-light tracking-wide"
-                    >
-                      2024
-                    </motion.p>
+                    {imageSet.artist && (
+                      <motion.p
+                        key={`artist-${containerIndex}`}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: 0.1 }}
+                        className="font-sans text-sm md:text-base text-dry-sage/80 tracking-wide"
+                      >
+                        {imageSet.artist}
+                      </motion.p>
+                    )}
                   </div>
                 </motion.div>
               );

@@ -11,7 +11,6 @@ export function ContactSection() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    eventDate: '',
     projectType: '',
     message: '',
   });
@@ -29,7 +28,6 @@ export function ContactSection() {
         {
           from_name: formData.name,
           from_email: formData.email,
-          event_date: formData.eventDate,
           project_type: formData.projectType,
           message: formData.message,
           to_email: 'onlyomoke@gmail.com',
@@ -45,7 +43,6 @@ export function ContactSection() {
         setFormData({
           name: '',
           email: '',
-          eventDate: '',
           projectType: '',
           message: '',
         });
@@ -136,48 +133,37 @@ export function ContactSection() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-6">
-            {/* Event Date */}
-            <div>
-              <label
-                htmlFor="eventDate"
-                className="font-sans block text-khaki-beige mb-2 font-medium"
-              >
-                Event Date
-              </label>
-              <input
-                type="date"
-                id="eventDate"
-                name="eventDate"
-                value={formData.eventDate}
-                onChange={handleChange}
-                className="font-sans w-full px-4 py-3 bg-charcoal-brown border border-dusty-olive rounded text-dry-sage focus:outline-none focus:border-camel transition-colors"
-                disabled={formStatus === 'loading' || formStatus === 'success'}
-              />
-            </div>
-
-            {/* Project Type */}
-            <div>
-              <label
-                htmlFor="projectType"
-                className="font-sans block text-khaki-beige mb-2 font-medium"
-              >
-                Project Type *
-              </label>
+          {/* Project Type - Full width */}
+          <div className="mb-6">
+            <label
+              htmlFor="projectType"
+              className="font-sans block text-khaki-beige mb-2 font-medium"
+            >
+              Project Type *
+            </label>
+            <div className="relative">
               <select
                 id="projectType"
                 name="projectType"
                 required
                 value={formData.projectType}
                 onChange={handleChange}
-                className="font-sans w-full px-4 py-3 bg-charcoal-brown border border-dusty-olive rounded text-dry-sage focus:outline-none focus:border-camel transition-colors"
+                className="font-sans w-full px-4 py-3 bg-charcoal-brown border border-dusty-olive rounded text-dry-sage focus:outline-none focus:border-camel transition-colors appearance-none cursor-pointer hover:border-camel/50"
                 disabled={formStatus === 'loading' || formStatus === 'success'}
+                style={{
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23C4A47A' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'right 1rem center',
+                  backgroundSize: '1.25rem',
+                }}
               >
-                <option value="">Select a project type</option>
-                <option value="Wedding">Wedding</option>
+                <option value="" className="text-dry-sage">Select a project type</option>
                 <option value="Commercial">Commercial</option>
                 <option value="Music Video">Music Video</option>
                 <option value="Narrative">Narrative</option>
+                <option value="Documentary">Documentary</option>
+                <option value="Fashion">Fashion</option>
+                <option value="Brand Content">Brand Content</option>
                 <option value="Other">Other</option>
               </select>
             </div>
