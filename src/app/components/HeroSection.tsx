@@ -17,9 +17,9 @@ const carouselVideos = [
   { id: 'T6FZF_VMu3o' },
   { id: '-JN_2J8QxS8' },
   { id: '3GbxFCREyvg' },
-  { id: '0GosIu8vDcY' },
   { id: 'rPYEdhK4OtU' },
-  { id: 'rkRnOf1s7-o' }
+  { id: 'rkRnOf1s7-o' },
+  { id: 'nQ4usbGYamQ' }
 ];
 
 // Define image sets for each container with title and artist

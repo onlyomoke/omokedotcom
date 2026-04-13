@@ -1,7 +1,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Dark Ember Flames Color Palette */
+  /* Dark Ember Flames Color Palette with Black Background */
   
   /* Primary/Dark Backgrounds - Deep Ember Reds */
   --molten-lava: #780000;
@@ -33,8 +33,8 @@
   --font-mono: "Menlo", "Monaco", "Courier New", monospace;
   --font-garamond: "Apple Garamond", "Garamond", serif;
   
-  /* Theme Colors Mapping */
-  --background: var(--deep-ember);
+  /* Theme Colors Mapping - Background is now PURE BLACK */
+  --background: #000000;  /* Changed to pure black */
   --foreground: var(--ash-white);
   --card: var(--black-cherry);
   --card-foreground: var(--ash-white);
@@ -52,7 +52,7 @@
   --destructive-foreground: #ffffff;
   --border: var(--ember-glow);
   --input: var(--black-cherry);
-  --input-background: var(--deep-ember);
+  --input-background: #000000;  /* Changed to pure black */
   --switch-background: var(--ember-glow);
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
@@ -66,6 +66,36 @@
   --chart-4: var(--smoldering-copper);
   --chart-5: var(--ember-dust);
   --radius: 0.5rem;
+  --sidebar: var(--black-cherry);
+  --sidebar-foreground: var(--ash-white);
+  --sidebar-primary: var(--molten-lava);
+  --sidebar-primary-foreground: var(--ash-white);
+  --sidebar-accent: var(--rich-mahogany);
+  --sidebar-accent-foreground: var(--ember-dust);
+  --sidebar-border: var(--ember-glow);
+  --sidebar-ring: var(--flame-kissed);
+}
+
+/* Optional: Dark mode if you still want to support it */
+.dark {
+  --background: #000000;  /* Keep black in dark mode too */
+  --foreground: var(--ash-white);
+  --card: var(--black-cherry);
+  --card-foreground: var(--ash-white);
+  --popover: var(--rich-mahogany);
+  --popover-foreground: var(--ash-white);
+  --primary: var(--molten-lava);
+  --primary-foreground: var(--ash-white);
+  --secondary: var(--dark-garnet);
+  --secondary-foreground: var(--ash-white);
+  --muted: var(--rich-mahogany);
+  --muted-foreground: var(--faded-ember);
+  --accent: var(--flame-kissed);
+  --accent-foreground: var(--deep-ember);
+  --border: var(--ember-glow);
+  --input: var(--black-cherry);
+  --input-background: #000000;
+  --ring: var(--flame-kissed);
   --sidebar: var(--black-cherry);
   --sidebar-foreground: var(--ash-white);
   --sidebar-primary: var(--molten-lava);
@@ -151,7 +181,7 @@
   }
 
   body {
-    @apply bg-deep-ember text-ash-white;
+    @apply bg-background text-foreground;
     font-family: var(--font-sans);
     font-weight: var(--font-weight-normal);
     line-height: 1.5;

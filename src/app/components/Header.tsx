@@ -17,7 +17,6 @@ export function Header() {
 
   const navLinks = [
     { id: 'home', label: 'Home', path: '/' },
-
     { id: 'about', label: 'About Me', path: '/about' },
     { id: 'contact', label: 'Contact', path: '/contact' },
   ];
@@ -36,12 +35,12 @@ export function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-        {/* Logo/Name */}
+        {/* Logo/Name - Now using font-sans to match navigation */}
         <Link
           to="/"
-          className="font-garamond text-2xl tracking-wider text-khaki-beige hover:text-camel transition-colors duration-300"
+          className="font-sans text-2xl tracking-wider text-khaki-beige hover:text-camel transition-colors duration-300"
         >
-          Omoke Ogao
+          OMOKE OGAO
         </Link>
 
         {/* Navigation */}
