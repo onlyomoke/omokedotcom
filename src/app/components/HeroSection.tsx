@@ -425,7 +425,7 @@ export function HeroSection({ onNavigateToFilms, onNavigateToAbout }: HeroSectio
         </div>
       </div>
 
-      {/* Image Grid Section - Two-layer titles */}
+      {/* Image Grid Section - Two-layer titles with lazy loading */}
       <section className="relative w-full bg-dark-walnut">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-10 lg:gap-x-12 gap-y-32 md:gap-y-40 lg:gap-y-48">
@@ -449,6 +449,8 @@ export function HeroSection({ onNavigateToFilms, onNavigateToAbout }: HeroSectio
                         key={`${containerIndex}-${currentImage}`}
                         src={getImageUrl(currentImage)}
                         alt={imageSet.title}
+                        loading="lazy"
+                        decoding="async"
                         initial={{ opacity: 0, scale: 1.1 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.95 }}
