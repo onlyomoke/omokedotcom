@@ -41,7 +41,7 @@ export function AboutSection() {
           >
             <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
               <img
-                src="/public/images/profile.jpeg"
+                src="/images/profile.jpeg"
                 alt="Omoke Ogao"
                 className="w-full h-full object-cover brightness-[0.85] contrast-[1.1]"
               />
